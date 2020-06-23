@@ -6,12 +6,13 @@
 	<title>tamagotchi</title>
 	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="java3-5-1.js" type="text/javascript" charset="utf-8" async defer></script>
 	<script src="app.js" type="text/javascript" charset="utf-8" async defer></script>
 </head>
 <body class="body">
 	<div class="top">
-		<input type="text" id="nameInput" name="name">
-		<span id="enterName"><button>Name Your Pet</button></span>
+		<input type="text" id="nameInput" name="name"></input>
+		<span><button id="enterName">Name Your Pet</button></span>
 		<h1 id="name">name</h1>
 		<span>
 		<ul class="metrics">
@@ -25,9 +26,9 @@
 		<image id="image" src="https://www.tamatalk.com/IB/uploads/profile/photo-172720.gif"></image>
 	</div>
 	<footer class="bottomButtons">
-		<button>Feed</button>
-		<button>Lights</button>
-		<button>Play</button>
+		<button id="feed">Feed</button>
+		<button id="lights">Lights</button>
+		<button id="play">Play</button>
 	</footer>
 </body>
 </html>
