@@ -1,5 +1,5 @@
 //----APP STATE
-let time = 180;
+let time = 0;
 let deathDrop = 10;
 let lipSync = 10;
 let entertain = 10;
@@ -23,30 +23,45 @@ startButton.addEventListener('click', startTimer);
 
 function startTimer() {
   const timer = setInterval(function () {
-    if (time > 0) {
-        time--;
-        console.log('time');
+    if (time < 180) {
+        time++;
+        document.getElementById('timeSeen').innerText = `Time: ${time};`
     }
   }, 1000)
 };
 
-// updateTime() {
-//     document.getElementById('time').innerText = `Minutes until song ends: ${timer}`
+// function updateTime() {
+//     document.getElementById('timeSeen').innerText = `Time: ${time};`
 // }
 
-class tamaPet {
-	constructor(name, age, sleep, bordem, image) {
-		this.name = name;
-		this.age = age;
-		this.sleep = sleep;
-		this.bordem = bordem;
-		this.image = image;
-	}
+function decreasePoints() {
+    if (time < 180) {
+        deathdrop--;
+        lipSync--;
+        entertain--;
+        updatePoints();
+    }
+};
+
+function updatePoints() {
+    document.getElementById('deathDropPoints').innertext = `Deathdrop Points: ${deathDrop};`
+    document.getElementById('lipSyncPoints').innertext = `Lip Sync Points: ${lipSync};`
+    document.getElementById('entertainmentPoints').innertext = `Lip Sync Points: ${entertain};`
 }
 
+// class tamaPet {
+// 	constructor(name, deathDrop, lipSync, entertain, image) {
+// 		this.name = name,
+// 		this.deathDrop = deathDrop,
+// 		this.lipSync = lipSync,
+// 		this.entertain = entertain,
+// 		this.image = image,
+// 	}
+// }
 
 
-// function isAlive {
+
+// function sha {
 //     if (tamaPet.sleep < 10 && tamaPet.boredem < 10 && tamaPet.bordem < 10) {
 //         return true; 
 //     } else if (tamaPet.sleep == 10 || tamaPet.bordem == 10 || tamaPet.boredem == 10) {
@@ -55,35 +70,3 @@ class tamaPet {
 //     }
 // }
 // console.log(isAlive);
-
-
-
-// function timer() {
-// }
-
-// function changeImage(){
-// }
-
-
-
-// gameStart{
-// }
-
-// class time {
-// }
-
-// class imageChange {
-// }
-
-// class imageChangePerm {
-// }
-
-// class ageUp {
-// }
-
-// class metricIncrease {
-// }
-
-// class metricDecrease {
-// }
-
