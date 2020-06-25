@@ -7,14 +7,21 @@ let boredom = 1;
 let image = document.getElementById('image');
 
 //------CASHED DOM ELEMENTS
-const feedPet = document.getElementById('deathDropButton');
-const sleepPet = document.getElementById('lipSyncButton');
-const playPet = document.getElementById('entertainButton');
+const feedPet = document.getElementById('feed');
+const sleepPet = document.getElementById('sleep');
+const playPet = document.getElementById('play');
 const startButton = document.getElementById('enterName');
 
 //-------EVENT LISTENERS
 startButton.addEventListener('click', startTimer);
-startButton.addEventListener('click', hungerPoints);
+startButton.addEventListener('click', hungerIncrease);
+startButton.addEventListener('click', sleepinessIncrease);
+startButton.addEventListener('click', boredomIncrease)
+feedPet.addEventListener('click', hungerDecrease);
+sleepPet.addEventListener('click', sleepinessDecrease);
+playPet.addEventListener('click', boredomDecrease);
+
+
 
 //------FUNCTIONS
 
@@ -27,16 +34,56 @@ function startTimer() {
   }, 1000)
 }
 
-function hungerPoints() {
+function hungerIncrease() {
     const hungerup = setInterval(function () {
     if (hunger < 10) {
         hunger++;
-        console.log(hunger);
-        document.getElementById('hungerH').innertext = `Hunger: ${hunger}`;
+        // console.log(hunger);
+        // $('hungerH').html("Hunger: ${hunger}");
     }
   }, 1000)
 }
 
+function hungerDecrease() {
+    if (hunger > 2) {
+        hunger-=2;
+        // console.log(hunger);
+    }
+}
+
+function sleepinessIncrease() {
+    const sleepinessup = setInterval(function () {
+    if (sleepiness < 10) {
+        sleepiness++;
+        console.log(sleepiness);
+        document.getElementById('sleepH').innertext = `Sleepiness: ${sleepiness}`;
+    }
+  }, 1000)
+}
+
+function sleepinessDecrease() {
+    if (sleepiness > 2) {
+        sleepiness-=2;
+        console.log(sleepiness);
+    }
+}
+
+function boredomIncrease() {
+    const boredomup = setInterval(function () {
+    if (boredom < 10) {
+        boredom++;
+        // console.log(boredom);
+        // $('sleepH').html("Hunger: ${hunger}");
+    }
+  }, 1000)
+}
+
+function boredomDecrease() {
+    if (boredom > 2) {
+        boredom-=2;
+        // console.log(boredom);
+    }
+}
 
 
 // function increaseDeathDrop() {
