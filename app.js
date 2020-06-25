@@ -4,7 +4,10 @@ let time = 0;
 let hunger = 1;
 let sleepiness = 1;
 let boredom = 1;
-let image = document.getElementById('divImage');
+// let image = document.getElementById('divImage');
+const imageLifeCycle = ['👶', '🧒', '🧔', '👨‍'];
+const imageInteractions = ['👨‍🍳', '😴', '🤡', '💀'];
+let imageAge = 0;
 
 //------CASHED DOM ELEMENTS
 const feedPet = document.getElementById('feed');
@@ -27,31 +30,40 @@ playPet.addEventListener('click', boredomDecrease);
 
 //------FUNCTIONS
 
-function imageChange() {
-    const imageZero = $(`<image src="https://art.pixilart.com/541efd98c67051b.gif"></image>`);
-    $('divImage').append(imageZero);
-}
+
+function imageChange(event, imageAge = 0) {
+    console.log(imageAge);
+    let image = imageLifeCycle[imageAge];
+    if (!image) {
+        image = imageLifeCycle[imageLifeCycle.length-1];
+    }
+    document.getElementById('divImage').innerHTML = image;
+};
 
 function changeName() {
-    let namePet = $('#nameInput').innertext
-    $('#name').append(namePet);
+    const x = document.getElementById('nameInput').value;
+    document.getElementById('name').innerHTML = x;
 };
 
 function startTimer() {
   const timer = setInterval(function () {
-    if (time < 300) {
-        time++;
+    // if (time < 300) {
+        // time++;
         // console.log(time)
-    }
-  }, 1000)
+    // }
+    imageAge++;
+    imageChange(event, imageAge);
+    console.log(imageAge);
+  }, 10000)
 };
 
 function hungerIncrease() {
     const hungerup = setInterval(function () {
     if (hunger < 10) {
         hunger++;
-        console.log(hunger);
-        // $('hungerH').html("Hunger: ${hunger}");
+        // console.log(hunger);
+        console.log($('#hungerH'));
+        $('#hungerH').html(`Hunger: ${hunger}`);
     }
   }, 1000)
 };
@@ -59,7 +71,8 @@ function hungerIncrease() {
 function hungerDecrease() {
     if (hunger > 2) {
         hunger-=2;
-        console.log(hunger);
+        // console.log(hunger);
+        $('#hungerH').html(`Hunger: ${hunger}`);
     }
 };
 
@@ -67,8 +80,7 @@ function sleepinessIncrease() {
     const sleepinessup = setInterval(function () {
     if (sleepiness < 10) {
         sleepiness++;
-        // console.log(sleepiness);
-        // document.getElementById('sleepH').innertext = 'Sleepiness: ${sleepiness}';
+        $('#sleepinessH').html(`Sleepiness: ${sleepiness}`);
     }
   }, 1000)
 };
@@ -84,8 +96,7 @@ function boredomIncrease() {
     const boredomup = setInterval(function () {
     if (boredom < 10) {
         boredom++;
-        // console.log(boredom);
-        // $('sleepH').html("Hunger: ${hunger}");
+        $('#boredomH').html(`Boredom: ${boredom}`);
     }
   }, 1000)
 };
@@ -96,83 +107,6 @@ function boredomDecrease() {
         // console.log(boredom);
     }
 };
-
-
-// function increaseDeathDrop() {
-//   if(deathDrop > 1 && deathDrop < 11) {
-//     deathDrop+=2;
-//     } else if (deathDrop >= 10) {
-//         deathDrop+=0;
-//   } 
-// }
-
-// function decreaseForDeathDrop() {
-//         if (deathDrop > 1 && deathDrop < 11) {
-//         deathDrop--;
-//         console.log(deathDrop);
-//         document.getElementById('deathDropPoints').innertext = `Deathdrop Points: ${deathDrop}`;
-//     }
-// }
-
-// console.log(time);
-
-
-
-// // function decreasePoints() {
-// //     const points = setInterval(function () {
-// //         if (time < 180) {
-// //             deathDrop--;
-// //             lipSync--;
-// //             entertain--;
-// //             // console.log(entertain);
-// //             console.log(deathDrop);
-// //             // updatePoints
-// //     }
-// //   }, 1000)
-// // }
-
-// // function increaseDeathDrop() {
-// //   if(deathDrop > 1 && deathDrop < 9) {
-// //     deathDrop+=2;
-// //     } else if (deathDrop >= 10) {
-// //         deathDrop+=0;
-// //   } 
-// // }
-
-
-// // function increaseLipSync() {
-// //     if(lipSync > 1 && lipSync < 9) {
-// //         lipSync+=2;
-// //     } else if (lipSync >= 10) {
-// //         lipSync+=0;
-// //     } 
-// // }
-
-// // function increaseEntertainment() {
-// //     if(entertain > 1 && entertain < 9) {
-// //         entertain+=2;
-// //     } else if (entertain >= 10) {
-// //         entertain+=0;
-// //     } 
-// // }
-
-// // function updatePoints(deathDrop, lipSync, entertain) {
-// //     document.getElementById('deathDropPoints').innertext = `Deathdrop Points: ${deathDrop}`;
-// //     document.getElementById('lipSyncPoints').innertext = `Lip Sync Points: ${lipSync}`;
-// //     document.getElementById('entertainPoints').innertext = `Entertainment Points: ${entertain}`;
-// // }
-
-// // function
-// // if (time < 60) {
-// //     const imageFirst = $(`<image src="(imageBegin)"></image>`);
-// //     $('.middle').append(imageFirst);
-// // } else if (time > 59 && time < 120) {
-// //     const imageSecond = $(`<image src="`${imageOne}`"></image>`);
-// //     $('.middle').append(imageSecond);
-// // }  else if (time > 119 && time < 181) {
-// //     const imagethird = $(`<image src="`${imageTwo}`"></image>`);
-// //     $('.middle').append(imageThird);
-// // }
 
 
 
