@@ -22,6 +22,7 @@ startButton.addEventListener('click', boredomIncrease);
 startButton.addEventListener('click', changeName);
 startButton.addEventListener('click', imageChange);
 feedPet.addEventListener('click', hungerDecrease);
+feedPet.addEventListener('click', bounce);
 // feedPet.addEventListener('click', imageHunger);
 sleepPet.addEventListener('click', sleepinessDecrease);
 playPet.addEventListener('click', boredomDecrease);
@@ -39,13 +40,9 @@ function imageChange(event, imageAge = 0) {
     document.getElementById('divImage').innerHTML = image;
 };
 
-// function imageHunger(event, hunger) {
-//     if (hunger--) {
-//         document.getElementById('divImage').innerHTML = imageInteractions[0];
-//     } else if (imageAge < 7) {
-//         imageChange();
-//   }
-// };
+function bounce () {
+        $('#divImage').toggle( "bounce", {times:3}, 300 );
+};
 
 function changeName() {
     const x = document.getElementById('nameInput').value;
@@ -56,10 +53,10 @@ function startTimer() {
   const timer = setInterval(function () {
     imageAge++;
     imageChange(event, imageAge);
+    $('#ageH').html(`Age: ${imageAge}`);
     if (imageAge > 1) {
         $('#retirement').html(`🎉 Happy Retirement! 🎉`);
     }
-    // console.log(imageAge);
   }, 10000)
 };
 
