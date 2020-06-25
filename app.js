@@ -4,8 +4,7 @@ let hunger = 1;
 let sleepiness = 1;
 let boredom = 1;
 // let image = document.getElementById('divImage');
-const imageLifeCycle = ['👶', '🧒', '🧔', '👴'];
-const imageInteractions = ['🤗', '😴', '🥳', '💀'];
+const imageLifeCycle = ['👶', '👦', '🧔', '👨‍🦳'];
 let imageAge = 0;
 
 //------CASHED DOM ELEMENTS
@@ -31,23 +30,6 @@ playPet.addEventListener('click', boredomDecrease);
 
 //------FUNCTIONS
 
-function shake(image) {
-  var interval = 100;
-  var distance = 10;
-  var times = 6;
-
-  for (var i = 0; i < (times + 1); i++) {
-    $(image).animate({
-      left:
-        (i % 2 == 0 ? distance : distance * -1)
-    }, interval);
-  }
-  $(image).animate({
-    left: 0,
-    top: 0
-  }, interval);
-}
-
 function imageChange(event, imageAge = 0) {
     console.log(imageAge);
     let image = imageLifeCycle[imageAge];
@@ -55,10 +37,6 @@ function imageChange(event, imageAge = 0) {
         image = imageLifeCycle[imageLifeCycle.length-1];
     }
     document.getElementById('divImage').innerHTML = image;
-};
-
-function bounce () {
-        $('#divImage').toggle( "bounce", {times:3}, 300 );
 };
 
 function changeName() {
@@ -71,7 +49,7 @@ function startTimer() {
     imageAge++;
     imageChange(event, imageAge);
     $('#ageH').html(`Age: ${imageAge}`);
-    if (imageAge > 1) {
+    if (imageAge > 3) {
         $('#retirement').html(`🎉 Happy Retirement! 🎉`);
     }
   }, 10000)
@@ -127,12 +105,6 @@ function boredomDecrease() {
         // console.log(boredom);
     }
 };
-
-// function retirement() {
-//     if (imageAge > 1) {
-//         $('#retirement').html(`Happy Retirement`);
-//     }
-// };
 
 
 
