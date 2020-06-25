@@ -1,12 +1,11 @@
 //----APP STATE
  
-let time = 0;
 let hunger = 1;
 let sleepiness = 1;
 let boredom = 1;
 // let image = document.getElementById('divImage');
-const imageLifeCycle = ['👶', '🧒', '🧔', '👨‍'];
-const imageInteractions = ['👨‍🍳', '😴', '🤡', '💀'];
+const imageLifeCycle = ['👶', '🧒', '🧔', '👴'];
+const imageInteractions = ['🤗', '😴', '🥳', '💀'];
 let imageAge = 0;
 
 //------CASHED DOM ELEMENTS
@@ -23,9 +22,9 @@ startButton.addEventListener('click', boredomIncrease);
 startButton.addEventListener('click', changeName);
 startButton.addEventListener('click', imageChange);
 feedPet.addEventListener('click', hungerDecrease);
+// feedPet.addEventListener('click', imageHunger);
 sleepPet.addEventListener('click', sleepinessDecrease);
 playPet.addEventListener('click', boredomDecrease);
-
 
 
 //------FUNCTIONS
@@ -40,6 +39,14 @@ function imageChange(event, imageAge = 0) {
     document.getElementById('divImage').innerHTML = image;
 };
 
+// function imageHunger(event, hunger) {
+//     if (hunger--) {
+//         document.getElementById('divImage').innerHTML = imageInteractions[0];
+//     } else if (imageAge < 7) {
+//         imageChange();
+//   }
+// };
+
 function changeName() {
     const x = document.getElementById('nameInput').value;
     document.getElementById('name').innerHTML = x;
@@ -47,13 +54,12 @@ function changeName() {
 
 function startTimer() {
   const timer = setInterval(function () {
-    // if (time < 300) {
-        // time++;
-        // console.log(time)
-    // }
     imageAge++;
     imageChange(event, imageAge);
-    console.log(imageAge);
+    if (imageAge > 1) {
+        $('#retirement').html(`🎉 Happy Retirement! 🎉`);
+    }
+    // console.log(imageAge);
   }, 10000)
 };
 
@@ -62,7 +68,7 @@ function hungerIncrease() {
     if (hunger < 10) {
         hunger++;
         // console.log(hunger);
-        console.log($('#hungerH'));
+        // console.log($('#hungerH'));
         $('#hungerH').html(`Hunger: ${hunger}`);
     }
   }, 1000)
@@ -107,6 +113,12 @@ function boredomDecrease() {
         // console.log(boredom);
     }
 };
+
+// function retirement() {
+//     if (imageAge > 1) {
+//         $('#retirement').html(`Happy Retirement`);
+//     }
+// };
 
 
 

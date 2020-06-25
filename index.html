@@ -10,22 +10,26 @@
 	<script src="app.js" type="text/javascript" charset="utf-8" async defer></script>
 </head>
 <body class="body">
-	<div class="top">
-		<input type="text" id="nameInput" name="name"></input>
-		<span><button id="enterName">Enter Name</button></span>
-		<h1 id="name"></h1>
-		<span>
-		<ul class="metrics">
-			<li id="hungerH">Hunger: 1</li>
-			<li id="sleepinessH">Sleepiness: 1</li>
-			<li id="boredomH">Boredom: 1</li>
-		</ul>
+	<div id="pageContainer">
+		<div id="aboveContent">
+			<div class="top">
+				<input type="text" id="nameInput" name="name"></input>
+				<span><button id="enterName">Enter Name</button></span>
+				<h1 id="name"></h1>
+				<ul class="metrics">
+					<li id="hungerH">Hunger: 1</li>
+					<li id="sleepinessH">Sleepiness: 1</li>
+					<li id="boredomH">Boredom: 1</li>
+				</ul>
+		</div>
+		<div id="divImage"></div>
+		</div>
+		<div><p id="retirement"></p></div>
+		<footer class="bottomButtons">
+			<button id="feed">Feed</button>
+			<button id="sleep">Sleep</button>
+			<button id="play">Play</button>
+		</footer>
 	</div>
-	<div id="divImage"></div>
-	<footer class="bottomButtons">
-		<button id="feed">Feed</button>
-		<button id="sleep">Sleep</button>
-		<button id="play">Play</button>
-	</footer>
 </body>
 </html>
