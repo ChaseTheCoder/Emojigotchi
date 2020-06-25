@@ -5,6 +5,15 @@ body {
 	font-family: Montserrat;
 }
 
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#aboveContainer {
+	padding-bottom: 10px;
+}
+
 .metrics {
 	position: absolute;
 	top: 8px;
@@ -29,8 +38,12 @@ body {
 }
 
 .bottomButtons {
-	margin: 100px;
+	margin: 50px;
 	text-align: center;
+	position: absolute;
+  	bottom: 0;
+  	width: 100%;
+  	height: 30px;
 }
 
 button {
