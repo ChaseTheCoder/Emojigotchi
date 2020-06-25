@@ -33,8 +33,14 @@ body {
 
 #divImage {
   font-size: 300px;
+  /*height: 300px;*/
+  width: 100%;
   line-height: 1.5;
+  position: relative;
+  animation: myfirst 100s;
+  animation-direction: alternate;
   text-align: center;
+
 }
 
 .bottomButtons {
@@ -54,4 +60,12 @@ button {
 #retirement {
 	font-size: 40px;
 	text-align: center;
+}
+
+@keyframes myfirst {
+  0%   {left: 0px; top: 0px;}
+  25%  {left: 200px; top: 0px;}
+  50%  {left: 0px; top: 0;}
+  75%  {left: 200px; top: 0px;}
+  100% {left: 00px; top: 0px;}
 }

@@ -13,6 +13,7 @@ const feedPet = document.getElementById('feed');
 const sleepPet = document.getElementById('sleep');
 const playPet = document.getElementById('play');
 const startButton = document.getElementById('enterName');
+const image = document.getElementById('divImage');
 
 //-------EVENT LISTENERS
 startButton.addEventListener('click', startTimer);
@@ -22,7 +23,7 @@ startButton.addEventListener('click', boredomIncrease);
 startButton.addEventListener('click', changeName);
 startButton.addEventListener('click', imageChange);
 feedPet.addEventListener('click', hungerDecrease);
-feedPet.addEventListener('click', bounce);
+feedPet.addEventListener('click', shake);
 // feedPet.addEventListener('click', imageHunger);
 sleepPet.addEventListener('click', sleepinessDecrease);
 playPet.addEventListener('click', boredomDecrease);
@@ -30,6 +31,22 @@ playPet.addEventListener('click', boredomDecrease);
 
 //------FUNCTIONS
 
+function shake(image) {
+  var interval = 100;
+  var distance = 10;
+  var times = 6;
+
+  for (var i = 0; i < (times + 1); i++) {
+    $(image).animate({
+      left:
+        (i % 2 == 0 ? distance : distance * -1)
+    }, interval);
+  }
+  $(image).animate({
+    left: 0,
+    top: 0
+  }, interval);
+}
 
 function imageChange(event, imageAge = 0) {
     console.log(imageAge);
