@@ -5,6 +5,7 @@ let sleepiness = 1;
 let boredom = 1;
 // let image = document.getElementById('divImage');
 const imageLifeCycle = ['👶', '👦', '🧔', '👨‍🦳'];
+const imageDead = "🧟‍♂️";
 let imageAge = 0;
 
 //------CASHED DOM ELEMENTS
@@ -22,8 +23,6 @@ startButton.addEventListener('click', boredomIncrease);
 startButton.addEventListener('click', changeName);
 startButton.addEventListener('click', imageChange);
 feedPet.addEventListener('click', hungerDecrease);
-feedPet.addEventListener('click', shake);
-// feedPet.addEventListener('click', imageHunger);
 sleepPet.addEventListener('click', sleepinessDecrease);
 playPet.addEventListener('click', boredomDecrease);
 
@@ -42,6 +41,15 @@ function imageChange(event, imageAge = 0) {
 function changeName() {
     const x = document.getElementById('nameInput').value;
     document.getElementById('name').innerHTML = x;
+};
+
+function death() {
+    $('#divImage').html(`💀`);
+    $('#retirement').html(`R.I.P.`);
+    hunger === 0;
+    sleepiness  === 0;
+    imageAge = 0;
+    boredom = 0;
 };
 
 function startTimer() {
@@ -86,7 +94,6 @@ function sleepinessIncrease() {
 function sleepinessDecrease() {
     if (sleepiness > 2) {
         sleepiness-=2;
-        // console.log(sleepiness);
     }
 };
 
@@ -95,6 +102,8 @@ function boredomIncrease() {
     if (boredom < 10) {
         boredom++;
         $('#boredomH').html(`Boredom: ${boredom}`);
+    } else if (boredom == 10) {
+        death();
     }
   }, 1000)
 };
@@ -102,7 +111,6 @@ function boredomIncrease() {
 function boredomDecrease() {
     if (boredom > 2) {
         boredom-=2;
-        // console.log(boredom);
     }
 };
 
