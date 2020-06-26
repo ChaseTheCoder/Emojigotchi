@@ -4,7 +4,7 @@ let hunger = 1;
 let sleepiness = 1;
 let boredom = 1;
 // let image = document.getElementById('divImage');
-const imageLifeCycle = ['👶', '👦', '🧔', '👨‍🦳'];
+const imageLifeCycle = ['👶', '👦', '👨', '👨‍🦳'];
 const imageDead = "🧟‍♂️";
 let imageAge = 0;
 
@@ -43,13 +43,10 @@ function changeName() {
     document.getElementById('name').innerHTML = x;
 };
 
-function death() {
+function death(hunger) {
     $('#divImage').html(`💀`);
-    $('#retirement').html(`R.I.P.`);
-    hunger === 0;
-    sleepiness  === 0;
-    imageAge = 0;
-    boredom = 0;
+    $('#retirement').html(`R.I.P...Refresh If you want to Play again...`);
+    clearInterval(hunger);
 };
 
 function startTimer() {
@@ -57,8 +54,9 @@ function startTimer() {
     imageAge++;
     imageChange(event, imageAge);
     $('#ageH').html(`Age: ${imageAge}`);
-    if (imageAge > 3) {
+    if (imageAge > 4) {
         $('#retirement').html(`🎉 Happy Retirement! 🎉`);
+    } else if (imageAge = 4) {
     }
   }, 10000)
 };
@@ -67,9 +65,9 @@ function hungerIncrease() {
     const hungerup = setInterval(function () {
     if (hunger < 10) {
         hunger++;
-        // console.log(hunger);
-        // console.log($('#hungerH'));
         $('#hungerH').html(`Hunger: ${hunger}`);
+    } else if (hungerIncrease = 10) {
+        death();
     }
   }, 1000)
 };
@@ -87,6 +85,8 @@ function sleepinessIncrease() {
     if (sleepiness < 10) {
         sleepiness++;
         $('#sleepinessH').html(`Sleepiness: ${sleepiness}`);
+    } else if (sleepiness = 10) {
+        death();
     }
   }, 1000)
 };
