@@ -1,5 +1,5 @@
 body {
-	background-color: white;
+	background-color: #F2F2F2;
 	padding: 0;
 	margin: 0;
 	font-family: Montserrat;
@@ -16,19 +16,22 @@ body {
 
 .metrics {
 	position: absolute;
-	top: 8px;
-	right: 16px;
-	font-size: 18px;
+	top: 2px;
+	margin: 0;
+	padding: 8px;
+	right: 2px;
+	font-size: 20px;
 	list-style-type: none;
 }
 
 #name {
-	text-align: justify;
-	text-justify: inter-word;
-	top: 8px;
+	font-family: Montserrat;
+	font-size: 40px;
+	text-align: center;
 }
 
 #nameInput {
+	background-color: #F2F2F2;
 	margin: 22px;
 	height: 50px;
 	width: 250px;
