@@ -3,7 +3,6 @@
 let hunger = 1;
 let sleepiness = 1;
 let boredom = 1;
-// let image = document.getElementById('divImage');
 const imageLifeCycle = ['👶', '👦', '👨', '👨‍🦳'];
 const imageDead = "🧟‍♂️";
 let imageAge = 0;
@@ -75,8 +74,7 @@ function hungerIncrease() {
 function hungerDecrease() {
     if (hunger > 2) {
         hunger-=2;
-        // console.log(hunger);
-        $('#hungerH').html(`Hunger: ${hunger}`);
+          $('#hungerH').html(`Hunger: ${hunger}`);
     }
 };
 
@@ -94,7 +92,7 @@ function sleepinessIncrease() {
 function sleepinessDecrease() {
     if (sleepiness > 2) {
         sleepiness-=2;
-    }
+  }
 };
 
 function boredomIncrease() {
@@ -111,7 +109,7 @@ function boredomIncrease() {
 function boredomDecrease() {
     if (boredom > 2) {
         boredom-=2;
-    }
+  }
 };
 
 
