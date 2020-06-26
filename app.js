@@ -54,9 +54,9 @@ function startTimer() {
     imageAge++;
     imageChange(event, imageAge);
     $('#ageH').html(`Age: ${imageAge}`);
-    if (imageAge > 4) {
+    if (imageAge >= 4) {
         $('#retirement').html(`🎉 Happy Retirement! 🎉`);
-    } else if (imageAge = 4) {
+        clearInterval(imageAge);
     }
   }, 10000)
 };
